@@ -61,6 +61,24 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     log: true,
     waitConfirmations: 5,
   });
+
+  await deploy("MyPrimitives", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    //args: [230],
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("CallerPrimitives", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    //args: [230],
+    log: true,
+    waitConfirmations: 5,
+  });
   // Getting a previously deployed contract
   //const YourContract = await ethers.getContract("YourContract", deployer);
   const MyContract = await ethers.getContract("MyContract", deployer);
