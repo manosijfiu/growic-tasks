@@ -79,6 +79,15 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     log: true,
     waitConfirmations: 5,
   });
+
+  await deploy("MyMappings", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    //args: [230],
+    log: true,
+    waitConfirmations: 5,
+  });
   // Getting a previously deployed contract
   //const YourContract = await ethers.getContract("YourContract", deployer);
   const MyContract = await ethers.getContract("MyContract", deployer);
@@ -97,7 +106,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   //Class - 1
 
   await MyContract.transferOwnership(
-    "0x2cf7d618b97CEC7C996BAbfB2319fD2A717a9eD7"
+    "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1"
   );
 
 
