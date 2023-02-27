@@ -31,7 +31,7 @@ contract MyPrimitives {
         int256 intData = -465; //We should not use int unless we know definitely that there is a possibility of teh variable to be negative.
         console.logString("bytesData = ");
         console.logBytes(bytesData);
-        console.logString("bytesData = ");
+        console.logString("stringsData = ");
         console.logString(stringsData);
         console.logString("bytes3Data = ");
         console.logBytes3(bytes3Data);
@@ -60,10 +60,10 @@ contract MyPrimitives {
         console.logString("bytes20convertedAddress = ");
         console.logBytes20(bytes20convertedAddress);
         bytes memory bytes3fromStringConvertedData = bytes(stringsData); //Arrays, structs or mapping shoud be declared its memory location types
-        console.logString("bytes3fromStringConvertedData = ");
+        console.logString("bytesfromStringConvertedData = ");
         console.logBytes(bytes3fromStringConvertedData);
         bytes1 bytesFromUintConvertedData = bytes1(uint8Data);
-        console.logString("bytesFromUintConvertedData = ");
+        console.logString("bytes1FromUintConvertedData = ");
         console.logBytes1(bytesFromUintConvertedData);
     }
 
@@ -103,6 +103,7 @@ contract MyPrimitives {
     }
 }
 
+//Show the difference in gas price by calling these functions separately
 contract CallerPrimitives {
     function callGetDataInString() public returns (string memory) {
         string memory stringReturnData;
