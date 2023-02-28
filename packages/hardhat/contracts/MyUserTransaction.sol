@@ -3,9 +3,15 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "hardhat/console.sol";
 
-contract MyMappingsUpdated {
+struct UserDetails {
+    string name;
+    uint256 age;
+}
+
+contract MyUserTransaction {
     address private useraddress;
     mapping(address => uint256) private balance;
+    mapping(address => UserDetails) private userDetails;
 
     constructor() payable {}
 
@@ -24,12 +30,21 @@ contract MyMappingsUpdated {
     }
 
     function checkBalance() public view returns (uint256) {
-        console.log("message.sender = ", useraddress);
+        console.log("msg.sender = ", useraddress);
         console.log("returning value = ", balance[useraddress]);
         return balance[useraddress];
     }
 
-    //receive() external payable {}
+    function setUserDetails(string calldata _name, uint256 _age) external {
+        useraddress = msg.sender;
+        UserDetails memory _userDetails;
+        _userDetails.name = _name;
+        _userDetails.age = _age;
+        userDetails[useraddress] = _userDetails;
+    }
 
-    //fallback() external payable {}
+    function getUserDetails() public view returns (UserDetails memory) {
+        console.log("message.sender = ", useraddress);
+        return userDetails[useraddress];
+    }
 }
