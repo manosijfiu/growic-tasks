@@ -3,7 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "hardhat/console.sol";
 
-contract MyMappings {
+contract MyMappingsUpdated {
     address private useraddress;
     mapping(address => uint256) private balance;
     mapping(uint256 => uint256)[] array;
