@@ -31,10 +31,12 @@ contract MyMappings {
         return balance[useraddress];
     }
 
+    // This function allocates some memory for the array to stode future data
     function allocate(uint256 newMaps) public {
         for (uint256 i = 0; i < newMaps; i++) array.push();
     }
 
+    //Constructs the array element with index = map
     function writeMap(
         uint256 map,
         uint256 key,
@@ -43,11 +45,13 @@ contract MyMappings {
         array[map][key] = value;
     }
 
+    //reads the map
     function readMap(uint256 map, uint256 key) public view returns (uint256) {
         return array[map][key];
     }
 
-    function eraseMaps() public {
+    //erases the map. It erases the array but the actual values stay there in the memory. If you call the
+    //allocate function again and invoke the readmap with some previously set index and key, you will get the value back.
         delete array;
     }
     //receive() external payable {}
